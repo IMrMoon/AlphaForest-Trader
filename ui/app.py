@@ -1,7 +1,12 @@
 import sys
 import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import streamlit as st
 import pandas as pd
+from src.config_loader import load_config
+from src.api.daily_predictor import get_daily_signals
 
 st.set_page_config(page_title="Trading AI Dashboard", layout="wide", page_icon="📈")
 
@@ -39,15 +44,12 @@ from src.api.daily_predictor import get_daily_signals
 st.title("מערכת חיזוי מניות אלגוריתמית 📈")
 st.markdown("מערכת זו מבוססת על מודל Random Forest שלמד את התנהגות שוק ההון ומחשב הסתברויות קנייה לטווח של 5 ימים.")
 
-if 'ticker_list' not in st.session_state:
-    st.session_state.ticker_list = [
-        "POLI.TA", "LUMI.TA", "ESLT.TA", "NICE.TA", "TEVA.TA", 
-        "ICL.TA", "BEZQ.TA", "ENOG.TA", "ALHE.TA", "DSCT.TA",
-        "NVMI.TA", "TSEM.TA", "AZRG.TA", "AMOT.TA", "PHOE.TA", 
-        "FIBI.TA", "DANE.TA", "SPEN.TA", "MVNE.TA", "OPAL.TA"
-    ]
+config = load_config()
 
-st.subheader("ניהול יקום המניות (TA-35 + Custom)")
+if 'ticker_list' not in st.session_state:
+    st.session_state.ticker_list = config.data.tickers.copy()
+
+st.subheader(f"ניהול יקום המניות {config.data.universe}")
 col1, col2 = st.columns([3, 1])
 
 with col1:

@@ -2,11 +2,40 @@ project:
   name: "trading_ai"
   environment: "dev"
 data:
-  universe: "TA-35"
+  universe: "US Selection"
   target_horizon_days: 5
   target_threshold_pct: 0.01
   data_source: "yfinance"
-  tickers: ["POLI.TA", "LUMI.TA", "ESLT.TA", "NICE.TA", "TEVA.TA", "ICL.TA", "BEZQ.TA", "ENOG.TA", "ALHE.TA", "DSCT.TA", "NVMI.TA", "TSEM.TA", "AZRG.TA", "AMOT.TA", "PHOE.TA", "FIBI.TA", "DANE.TA", "SPEN.TA", "MVNE.TA", "OPAL.TA"]
+  tickers: [
+    "SPY",    # S&P 500
+    "QQQ",    # Nasdaq 100
+    "GLD",    # Gold (זהב)
+    "SLV",    # Silver (כסף)
+    
+    # ענקיות הטכנולוגיה (The Magnificent Seven)
+    "NVDA",   # Nvidia
+    "AAPL",   # Apple
+    "MSFT",   # Microsoft
+    "GOOGL",  # Google
+    "AMZN",   # Amazon
+    "META",   # Meta (Facebook)
+    "TSLA",   # Tesla
+    
+    # סמיקונדקטורס ו-AI (תנודתיות גבוהה)
+    "AMD",    # Advanced Micro Devices
+    "AVGO",   # Broadcom
+    "PLTR",   # Palantir
+    "SMCI",   # Super Micro Computer
+    
+    # פיננסים וצריכה (יציבות)
+    "JPM",    # JPMorgan Chase
+    "V",      # Visa
+    "COST",   # Costco
+    "NFLX",   # Netflix
+    "LLY",    # Eli Lilly (פארמה וצמיחה)
+    "BRK-B"   # Berkshire Hathaway
+  ]
+  #tickers: ["POLI.TA", "LUMI.TA", "ESLT.TA", "NICE.TA", "TEVA.TA", "ICL.TA", "BEZQ.TA", "ENOG.TA", "ALHE.TA", "DSCT.TA", "NVMI.TA", "TSEM.TA", "AZRG.TA", "AMOT.TA", "PHOE.TA", "FIBI.TA", "DANE.TA", "SPEN.TA", "MVNE.TA", "OPAL.TA"]
   stop_loss_pct: -0.05
   commission_pct: 0.001
 model:
