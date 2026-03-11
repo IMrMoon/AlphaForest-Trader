@@ -1,0 +1,18 @@
+project:
+  name: "trading_ai"
+  environment: "dev"
+data:
+  universe: "TA-35"
+  target_horizon_days: 5
+  target_threshold_pct: 0.01
+  data_source: "yfinance"
+  tickers: ["POLI.TA", "LUMI.TA", "ESLT.TA", "NICE.TA", "TEVA.TA", "ICL.TA", "BEZQ.TA", "ENOG.TA", "ALHE.TA", "DSCT.TA", "NVMI.TA", "TSEM.TA", "AZRG.TA", "AMOT.TA", "PHOE.TA", "FIBI.TA", "DANE.TA", "SPEN.TA", "MVNE.TA", "OPAL.TA"]
+  stop_loss_pct: -0.05
+  commission_pct: 0.001
+model:
+  model_type: "random_forest"
+  learning_rate: 0.05
+  n_estimators: 100
+  max_depth: 3
+  min_samples_split: 15
+  min_samples_leaf: 9
