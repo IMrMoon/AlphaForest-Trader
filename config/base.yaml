@@ -43,5 +43,5 @@ model:
   learning_rate: 0.05
   n_estimators: 100
   max_depth: 3
-  min_samples_split: 15
-  min_samples_leaf: 9
+  min_samples_split: 16
+  min_samples_leaf: 7
